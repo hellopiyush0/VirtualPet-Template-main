@@ -49,7 +49,7 @@ function draw() {
 
   });
  
-  fill(255, 255, 254);
+  fill("black");
   textSize(15);
 
   if(lastFed>=12){
@@ -120,5 +120,5 @@ function addFoods(){
   Food:foodS
 
   })
-  
+
 }
