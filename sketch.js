@@ -34,6 +34,9 @@ function setup(){
   addFood.position(800, 95);
   addFood.mousePressed(addFoods);
 
+  dogName = createInput("Dog Name");
+  dogName.position(900, 180);
+
 }
 
 function draw() {
