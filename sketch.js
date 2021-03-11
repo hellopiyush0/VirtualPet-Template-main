@@ -54,7 +54,7 @@ function draw() {
 
   if(lastFed>=12){
 
-    text("Last Feed : "+ lastFed%12 + " PM", 350,30);
+    text("Last Feed : "+ lastFed%12 + " PM", 350, 30);
 
   }
   
@@ -66,41 +66,59 @@ function draw() {
    
    else{
 
-    text("Last Feed : "+ lastFed + " AM", 350,30);
+    text("Last Feed : "+ lastFed + " AM", 350, 30);
 
   }
  
   drawSprites();
-  
+
 }
 
 //function to read food Stock
+
 function readStock(data){
-  foodS=data.val();
+
+  foodS = data.val();
   foodObj.updateFoodStock(foodS);
+
 }
 
 
 //function to update food stock and last fed time
+
 function feedDog(){
+
   dog.addImage(happyDog);
   
   if(foodObj.getFoodStock()<= 0){
+
     foodObj.updateFoodStock(foodObj.getFoodStock()*0);
-  }else{
+
+  }
+
+  else{
+
     foodObj.updateFoodStock(foodObj.getFoodStock()-1);
+
   }
   
   database.ref('/').update({
+
     Food:foodObj.getFoodStock(),
     FeedTime:hour()
+
   })
+
 }
 
 //function to add food in stock
+
 function addFoods(){
+
   foodS++;
   database.ref('/').update({
-    Food:foodS
+  Food:foodS
+
   })
+  
 }
